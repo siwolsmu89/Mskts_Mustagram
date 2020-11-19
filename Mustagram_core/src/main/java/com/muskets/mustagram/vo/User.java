@@ -11,7 +11,7 @@ public class User {
     private String gender;
     private Date birthdate;
     private String address;
-    private String imageSrc;
+    private String image;
     private String nickname;
     private String sns;
 
@@ -81,12 +81,12 @@ public class User {
         this.address = address;
     }
 
-    public String getImageSrc() {
-        return imageSrc;
+    public String getImage() {
+        return image;
     }
 
-    public void setImageSrc(String imageSrc) {
-        this.imageSrc = imageSrc;
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String getNickname() {
