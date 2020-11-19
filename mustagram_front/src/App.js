@@ -1,12 +1,12 @@
 import React, {Component} from "react";
 import {BrowserRouter,Route} from 'react-router-dom'
-import FristPageRouter from "./route/FristPageRouter";
+import MemberPageRouter from "./route/MemberPageRouter";
 
 class App extends Component {
   render(){
     return (
         <BrowserRouter>
-            <FristPageRouter/>
+            <MemberPageRouter/>
         </BrowserRouter>
     )
   }
