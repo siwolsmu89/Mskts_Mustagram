@@ -19,7 +19,22 @@ public class MemberController {
     public MemberService memberService;
 
     @RequestMapping("/register.do")
-    public String registerNewUser(@RequestParam User user) {
+    public String registerNewUser() {
+        User user = new User();
+        user.setId("siwolsmu");
+        user.setName("minsk");
+        user.setPassword("1234");
+        user.setTelePhone("123-1234");
+        user.setEmail("siwol_smuire89@naver.com");
+        user.setGender("M");
+        user.setBirthdate("20201124");
+        user.setAddress("Seoul, Korea");
+        user.setImage("");
+        user.setNickname("crowstone");
+        user.setSns("");
+
+        System.out.println(user.toString());
+
         return memberService.registerNewMember(user);
     }
 

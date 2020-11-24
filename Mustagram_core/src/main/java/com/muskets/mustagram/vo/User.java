@@ -9,7 +9,7 @@ public class User {
     private String telePhone;
     private String email;
     private String gender;
-    private Date birthdate;
+    private String birthdate;
     private String address;
     private String image;
     private String nickname;
@@ -65,11 +65,11 @@ public class User {
         this.gender = gender;
     }
 
-    public Date getBirthdate() {
+    public String getBirthdate() {
         return birthdate;
     }
 
-    public void setBirthdate(Date birthdate) {
+    public void setBirthdate(String birthdate) {
         this.birthdate = birthdate;
     }
 
