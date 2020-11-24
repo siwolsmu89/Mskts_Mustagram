@@ -12,5 +12,5 @@ class MainPageRoute extends Component {
         )
     }
 }
-
+``
 export default MainPageRoute

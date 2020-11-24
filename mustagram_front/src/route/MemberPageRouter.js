@@ -7,7 +7,6 @@ class MemberPageRouter extends Component {
     render(){
         return(
             <div>
-                MemberRouter
                 <Route path='/Login' component={LoginPage}/>
                 <Route path='/SignUp' component={SignUpPage}/>
             </div>
