@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.muskets.mustagram.mapper.UserMapper">
+    <insert id="insertUser" parameterType="com.muskets.mustagram.vo.User">
+        INSERT INTO user_info
+            (user_id, user_name, user_password, user_telephone, user_email, user_gender, user_birthdate, user_address, user_image, user_nickname, user_sns)
+        VALUES
+            (#{id}, #{name}, #{password}, #{telephone}, #{email}, #{gender}, #{birthdate}, #{address}, #{image}, #{nickname}, #{sns})
+    </insert>
+    <update id="updateUser" parameterType="com.muskets.mustagram.vo.User">
+        UPDATE user_info
+        SET
+            user_password = #{password},
+            user_telephone = #{telephone},
+            user_email = #{email},
+            user_address = #{address},
+            user_image = #{image},
+            user_nickname = #{nickname}
+        WHERE
+            user_id = #{id}
+    </update>
+    <delete id="deleteUser" parameterType="String">
+        DELETE FROM user_info
+        WHERE
+            user_id = #{id}
+    </delete>
+    <select id="getUserById" parameterType="String" resultType="com.muskets.mustagram.vo.User">
+        SELECT
+            user_id,
+            user_name,
+            user_password,
+            user_telephone,
+            user_email,
+            user_gender,
+            user_birthdate,
+            user_address,
+            user_image,
+            user_nickname,
+            user_sns
+        FROM user_info
+        WHERE
+            user_id = #{id}
+    </select>
+    <select id="getAllFollowersOf" parameterType="String" resultType="com.muskets.mustagram.vo.User">
+        SELECT
+            A.user_id,
+            A.user_name,
+            A.user_password,
+            A.user_telephone,
+            A.user_email,
+            A.user_gender,
+            A.user_birthdate,
+            A.user_address,
+            A.user_image,
+            A.user_nickname,
+            A.user_sns
+        FROM user_info A, user_follow B
+        WHERE
+            A.user_id = #{id}
+        AND
+            A.user_id = B.followee_id
+    </select>
+    <select id="getAllFolloweesOf" parameterType="String" resultType="com.muskets.mustagram.vo.User">
+         SELECT
+            A.user_id,
+            A.user_name,
+            A.user_password,
+            A.user_telephone,
+            A.user_email,
+            A.user_gender,
+            A.user_birthdate,
+            A.user_address,
+            A.user_image,
+            A.user_nickname,
+            A.user_sns
+        FROM user_info A, user_follow B
+        WHERE
+            A.user_id = #{id}
+        AND
+            A.user_id = B.follower_id
+    </select>
+</mapper>
