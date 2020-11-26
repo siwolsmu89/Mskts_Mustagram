@@ -16,8 +16,6 @@ public class MemberServiceImpl implements MemberService {
     public String registerNewMember(User user) {
         String resultString = "";
 
-        System.out.println(userMapper);
-
         User savedUser = userMapper.getUserById(user.getId());
         if (savedUser != null) {
             resultString = "Registration Fail : Same ID already exists";
@@ -26,8 +24,14 @@ public class MemberServiceImpl implements MemberService {
 
         // TODO: Other Conditions Should be checked more.
 
-        System.out.println(user.getId());
-        System.out.println(user.getName());
+        System.out.println(user);
+
+        if (user.getNickname() == null) {
+            System.out.println("name:" + user.getName());
+            user.setNickname(user.getName());
+        }
+
+        System.out.println(user);
 
         userMapper.insertUser(user);
         resultString = "Registration Success";

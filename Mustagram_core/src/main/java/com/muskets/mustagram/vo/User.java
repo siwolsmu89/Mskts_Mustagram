@@ -4,7 +4,7 @@ public class User {
     private String id;
     private String name;
     private String password;
-    private String telePhone;
+    private String telephone;
     private String email;
     private String gender;
     private String birthdate;
@@ -21,7 +21,7 @@ public class User {
         result += "User ID: " + id;
         result += "\nUser Name: " + name;
         result += "\nUser password: " + password.replaceAll(".", "*");
-        result += "\nUser telePhone: " + telePhone;
+        result += "\nUser telePhone: " + telephone;
         result += "\nUser email: " + email;
         result += gender != null ? "\nUser Gender: " + gender : "";
         result += birthdate != null ? "\nUser Birthdate: " + birthdate : "";
@@ -57,12 +57,12 @@ public class User {
         this.password = password;
     }
 
-    public String getTelePhone() {
-        return telePhone;
+    public String getTelephone() {
+        return telephone;
     }
 
-    public void setTelePhone(String telePhone) {
-        this.telePhone = telePhone;
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
     }
 
     public String getEmail() {
