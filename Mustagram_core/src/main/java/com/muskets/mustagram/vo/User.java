@@ -1,7 +1,5 @@
 package com.muskets.mustagram.vo;
 
-import java.util.Date;
-
 public class User {
     private String id;
     private String name;
@@ -16,6 +14,24 @@ public class User {
     private String sns;
 
     public User() {}
+
+    public String toString() {
+        String result = "";
+
+        result += "User ID: " + id;
+        result += "\nUser Name: " + name;
+        result += "\nUser password: " + password.replaceAll(".", "*");
+        result += "\nUser telePhone: " + telePhone;
+        result += "\nUser email: " + email;
+        result += gender != null ? "\nUser Gender: " + gender : "";
+        result += birthdate != null ? "\nUser Birthdate: " + birthdate : "";
+        result += address != null ? "\nUser Address: " + address : "";
+        result += image != null ? "\nUser Image: " + image : "";
+        result += "\nUser Nickname: " + nickname;
+        result += "\nUser SNS: " + sns;
+
+        return result;
+    }
 
     public String getId() {
         return id;
