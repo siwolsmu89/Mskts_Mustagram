@@ -5,7 +5,7 @@
         INSERT INTO user_info
             (user_id, user_name, user_password, user_telephone, user_email, user_gender, user_birthdate, user_address, user_image, user_nickname, user_sns)
         VALUES
-            (#{id}, #{name}, #{password}, #{telephone}, #{email}, #{gender}, #{birthdate}, #{address}, #{image}, #{nickname}, #{sns})
+            (#{id}, #{name}, #{password}, #{telePhone}, #{email}, #{gender}, #{birthdate}, #{address}, #{image}, #{nickname}, #{sns})
     </insert>
     <update id="updateUser" parameterType="com.muskets.mustagram.vo.User">
         UPDATE user_info

@@ -20,7 +20,7 @@ public class MemberServiceImpl implements MemberService {
 
         User savedUser = userMapper.getUserById(user.getId());
         if (savedUser != null) {
-            resultString = "User Registration Fail : Same ID already exists";
+            resultString = "Registration Fail : Same ID already exists";
             return resultString;
         }
 
@@ -30,7 +30,7 @@ public class MemberServiceImpl implements MemberService {
         System.out.println(user.getName());
 
         userMapper.insertUser(user);
-        resultString = "User Registration OK";
+        resultString = "Registration Success";
 
         return resultString;
     }
