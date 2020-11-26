@@ -3,7 +3,7 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=linux,intellij
 
 ### Custom ###
-Mustagram_core/target/
+**/target/
 Mustagram_root.iml
 .idea/*
 
