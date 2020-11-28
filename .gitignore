@@ -2,6 +2,8 @@ HELP.md
 Mustagram_core/target/
 Mustagram_core/src/main/resources/application.properties
 
+mustagram_front/node_modules
+
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
@@ -32,4 +34,8 @@ build/
 !**/src/test/**/build/
 
 ### VS Code ###
+<<<<<<< HEAD
 .vscode/
+=======
+.vscode/
+>>>>>>> master
