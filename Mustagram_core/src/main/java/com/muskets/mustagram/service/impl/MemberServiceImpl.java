@@ -38,4 +38,14 @@ public class MemberServiceImpl implements MemberService {
 
         return resultString;
     }
+
+    @Override
+    public User getMemberInfo(String userId) {
+        System.out.println("GetMemberInfo Activated..");
+        System.out.println("userId :: " + userId);
+        User user = userMapper.getUserById(userId);
+        return user;
+    }
+
+
 }

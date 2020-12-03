@@ -9,4 +9,5 @@ import org.springframework.stereotype.Service;
 public interface MemberService {
 
     public String registerNewMember(User user);
+    public User getMemberInfo(String userId);
 }
