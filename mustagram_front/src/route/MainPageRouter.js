@@ -6,11 +6,10 @@ class MainPageRoute extends Component {
     render(){
         return(
             <div>
-                MainPageRoute
                 <Route path='/MainPage' component={MainPage}/>
             </div>
         )
     }
 }
-``
+
 export default MainPageRoute

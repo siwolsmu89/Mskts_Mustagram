@@ -1,10 +1,19 @@
 import React, {Component} from 'react';
+import MyInfo from "../part/MyInfo";
+import ArticleScroll from "../part/ArticleScroll";
 
 class MainPage extends Component {
     render(){
         return(
-            <div>
-                MainPage
+            <div className="page page-wrapper page-main-page">
+                <div className="row">
+                    <div className="col-7">
+                        <ArticleScroll/>
+                    </div>
+                    <div className="col-5">
+                        <MyInfo/>
+                    </div>
+                </div>
             </div>
         )
     }
