@@ -8,6 +8,9 @@ mustagram_front/node_modules
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+.gradle
+target
+
 ### STS ###
 .apt_generated
 .classpath
