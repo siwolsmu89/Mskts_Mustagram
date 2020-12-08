@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import MyInfo from "../part/MyInfo";
+import MyInfo from "../part/MyInfo/MyInfo";
 import ArticleScroll from "../part/ArticleScroll";
 
 class MainPage extends Component {

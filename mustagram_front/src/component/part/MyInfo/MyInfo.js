@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import basicImage from '../../resources/profile/react-profile.png';
+import basicImage from '../../../resources/profile/react-profile.png';
+import './MyInfo.css'
 
 class MyInfo extends Component {
 
