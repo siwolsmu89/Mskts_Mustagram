@@ -26,34 +26,34 @@
     </delete>
     <select id="getUserById" parameterType="String" resultType="com.muskets.mustagram.vo.User">
         SELECT
-            user_id,
-            user_name,
-            user_password,
-            user_telephone,
-            user_email,
-            user_gender,
-            user_birthdate,
-            user_address,
-            user_image,
-            user_nickname,
-            user_sns
+            user_id AS id,
+            user_name AS name,
+            user_password AS password,
+            user_telephone AS telephone,
+            user_email AS email,
+            user_gender AS gender,
+            user_birthdate AS birthdate,
+            user_address AS address,
+            user_image AS image,
+            user_nickname AS nickname,
+            user_sns AS sns
         FROM user_info
         WHERE
             user_id = #{id}
     </select>
     <select id="getAllFollowersOf" parameterType="String" resultType="com.muskets.mustagram.vo.User">
         SELECT
-            A.user_id,
-            A.user_name,
-            A.user_password,
-            A.user_telephone,
-            A.user_email,
-            A.user_gender,
-            A.user_birthdate,
-            A.user_address,
-            A.user_image,
-            A.user_nickname,
-            A.user_sns
+            A.user_id AS id,
+            A.user_name AS name,
+            A.user_password AS password,
+            A.user_telephone AS telephone,
+            A.user_email AS email,
+            A.user_gender AS gender,
+            A.user_birthdate AS birthdate,
+            A.user_address AS address,
+            A.user_image AS image,
+            A.user_nickname AS nickname,
+            A.user_sns AS sns
         FROM user_info A, user_follow B
         WHERE
             A.user_id = #{id}
@@ -62,17 +62,17 @@
     </select>
     <select id="getAllFolloweesOf" parameterType="String" resultType="com.muskets.mustagram.vo.User">
          SELECT
-            A.user_id,
-            A.user_name,
-            A.user_password,
-            A.user_telephone,
-            A.user_email,
-            A.user_gender,
-            A.user_birthdate,
-            A.user_address,
-            A.user_image,
-            A.user_nickname,
-            A.user_sns
+            A.user_id AS id,
+            A.user_name AS name,
+            A.user_password AS password,
+            A.user_telephone AS telephone,
+            A.user_email AS email,
+            A.user_gender AS gender,
+            A.user_birthdate AS birthdate,
+            A.user_address AS address,
+            A.user_image AS image,
+            A.user_nickname AS nickname,
+            A.user_sns AS sns
         FROM user_info A, user_follow B
         WHERE
             A.user_id = #{id}
