@@ -4,24 +4,8 @@ import './MyInfo.css'
 
 class MyInfo extends Component {
 
-    state = {
-        myInfo:{}
-    }
-
-    getMyInfo() {
-        // ajax 요청으로 DB에서 사용자 정보 가져오기
-        fetch("/member/info.do?userId=siwolsmu")
-            .then(response => response.json())
-            .then(json => this.setState({myInfo:json}))
-    }
-
-    componentDidMount() {
-        this.getMyInfo();
-        console.log('myInfo', this.state.myInfo);
-    }
-
     render() {
-        var myInfo = this.state.myInfo
+        var myInfo = this.props.myInfo;
         var imageSrc = myInfo.image ? myInfo.image : basicImage;
         var imageAlt = myInfo.image ? "Image fileName: " + myInfo.image + " - profile image of user " + myInfo.nickname : "Basic Profile";
         return (

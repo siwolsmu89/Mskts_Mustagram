@@ -1,0 +1,7 @@
+.friend-content * {
+    display: none;
+}
+
+.friend-content .show {
+    display: block;
+}
