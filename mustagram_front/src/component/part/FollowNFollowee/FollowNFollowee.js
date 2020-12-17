@@ -24,8 +24,8 @@ class FollowNFollowee extends Component {
         var myInfo = this.props.myInfo;
         var myNickname = myInfo.nickname;
         return (
-            <div>
-                <div className="follow-n-follwee-tab row">
+            <div className="follow-n-followee">
+                <div className="follow-n-followee-tab row">
                     <div className="col-6" onClick={() => this.getFollow('er')}>
                         <h3>
                             {myNickname}'s Follwers
