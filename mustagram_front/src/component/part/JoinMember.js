@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-
+import InputId from "../piece/InputBox/InputId"
 class JoinMember extends Component{
     memberInsert = () => {
         let id = document.getElementById("id").value;
@@ -32,8 +32,9 @@ class JoinMember extends Component{
         return(
             <div>
                 <div class="login_field">
-                    아이디 : <input type="text" name="id" id="id"/> <br/>
+                    <InputId placeholder={'사용자 아이디'}/> <br/>
                     비밀번호 : <input type="text" name="password" id="password"/> <br/>
+                    비밀번호 확인 : <input type="text" name="password" id="password"/> <br/>
                     이름 : <input type="text" name="name" id="name"/> <br/>
                     전화번호 : <input type="text" name="telephone" id="telephone"/> <br/>
                     이메일 : <input type="text" name="email" id="email"/> <br/>
