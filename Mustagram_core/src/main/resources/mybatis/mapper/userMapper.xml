@@ -43,40 +43,52 @@
     </select>
     <select id="getAllFollowersOf" parameterType="String" resultType="com.muskets.mustagram.vo.User">
         SELECT
-            A.user_id AS id,
-            A.user_name AS name,
-            A.user_password AS password,
-            A.user_telephone AS telephone,
-            A.user_email AS email,
-            A.user_gender AS gender,
-            A.user_birthdate AS birthdate,
-            A.user_address AS address,
-            A.user_image AS image,
-            A.user_nickname AS nickname,
-            A.user_sns AS sns
-        FROM user_info A, user_follow B
-        WHERE
-            A.user_id = #{id}
-        AND
-            A.user_id = B.followee_id
+            user_id AS id,
+            user_name AS name,
+            user_password AS password,
+            user_telephone AS telephone,
+            user_email AS email,
+            user_gender AS gender,
+            user_birthdate AS birthdate,
+            user_address AS address,
+            user_image AS image,
+            user_nickname AS nickname,
+            user_sns AS sns
+        FROM user_info
+        WHERE user_id IN (
+            SELECT
+                follower_id
+            FROM
+                user_follow
+            WHERE
+                follower_id = #{id}
+        )
+        ORDER BY
+            user_name;
     </select>
     <select id="getAllFolloweesOf" parameterType="String" resultType="com.muskets.mustagram.vo.User">
          SELECT
-            A.user_id AS id,
-            A.user_name AS name,
-            A.user_password AS password,
-            A.user_telephone AS telephone,
-            A.user_email AS email,
-            A.user_gender AS gender,
-            A.user_birthdate AS birthdate,
-            A.user_address AS address,
-            A.user_image AS image,
-            A.user_nickname AS nickname,
-            A.user_sns AS sns
-        FROM user_info A, user_follow B
-        WHERE
-            A.user_id = #{id}
-        AND
-            A.user_id = B.follower_id
+            user_id AS id,
+            user_name AS name,
+            user_password AS password,
+            user_telephone AS telephone,
+            user_email AS email,
+            user_gender AS gender,
+            user_birthdate AS birthdate,
+            user_address AS address,
+            user_image AS image,
+            user_nickname AS nickname,
+            user_sns AS sns
+        FROM user_info
+        WHERE user_id IN (
+            SELECT
+                followee_id
+            FROM
+                user_follow
+            WHERE
+                follower_id = #{id}
+        )
+        ORDER BY
+            user_name;
     </select>
 </mapper>

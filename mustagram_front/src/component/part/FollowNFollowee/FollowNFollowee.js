@@ -38,8 +38,8 @@ class FollowNFollowee extends Component {
                     </div>
                 </div>
                 <div className="friend-content">
-                    <Follower show={this.state.friendType.indexOf('er') !== -1} />
-                    <Followee show={this.state.friendType.indexOf('ee') !== -1} />
+                    <Follower myInfo={myInfo} show={this.state.friendType.indexOf('er') !== -1} />
+                    <Followee myInfo={myInfo} show={this.state.friendType.indexOf('ee') !== -1} />
                 </div>
             </div>
         );

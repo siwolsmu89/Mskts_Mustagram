@@ -6,6 +6,9 @@ import com.muskets.mustagram.vo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service("MemberService")
 public class MemberServiceImpl implements MemberService {
 
@@ -47,5 +50,20 @@ public class MemberServiceImpl implements MemberService {
         return user;
     }
 
+    @Override
+    public List<User> getFriendList(String type, String userId) {
+        System.out.println("Get FriendList Activated..");
+        System.out.println("type :: " + type);
+        System.out.println("userId :: " + userId);
+
+        List<User> friendList = new ArrayList<>();
+        if ("r".equalsIgnoreCase(type)) {
+            friendList = userMapper.getAllFollowersOf(userId);
+        } else if ("e".equalsIgnoreCase(type)) {
+            friendList = userMapper.getAllFolloweesOf(userId);
+        }
+
+        return friendList;
+    }
 
 }

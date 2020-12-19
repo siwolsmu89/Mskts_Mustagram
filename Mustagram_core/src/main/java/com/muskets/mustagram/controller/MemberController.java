@@ -2,6 +2,7 @@ package com.muskets.mustagram.controller;
 
 import com.muskets.mustagram.service.MemberService;
 import com.muskets.mustagram.vo.User;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -34,6 +36,24 @@ public class MemberController {
         }
 
         JSONObject result = new JSONObject(user);
+        return result.toString();
+    }
+
+    @RequestMapping("friend.do")
+    public String getFriendInfo(@RequestParam String type, String userId) {
+
+        System.out.println("getFriendInfo Activated..");
+        System.out.println("type ::" + type);
+        System.out.println("userId :: " + userId);
+
+        User user = memberService.getMemberInfo(userId);
+        if (user == null) {
+            return "Failed To Get User Information";
+        }
+
+        List<User> friends = memberService.getFriendList(type, userId);
+
+        JSONArray result = new JSONArray(friends);
         return result.toString();
     }
 
