@@ -57,11 +57,11 @@
         FROM user_info
         WHERE user_id IN (
             SELECT
-                follower_id
+                followee_id
             FROM
                 user_follow
             WHERE
-                follower_id = #{id}
+                followee_id = #{id}
         )
         ORDER BY
             user_name;

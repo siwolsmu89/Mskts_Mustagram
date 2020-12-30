@@ -40,7 +40,7 @@ public class MemberController {
     }
 
     @RequestMapping("friend.do")
-    public String getFriendInfo(@RequestParam String type, String userId) {
+    public String getFriendInfo(@RequestParam String type, @RequestParam String userId) {
 
         System.out.println("getFriendInfo Activated..");
         System.out.println("type ::" + type);
@@ -48,12 +48,14 @@ public class MemberController {
 
         User user = memberService.getMemberInfo(userId);
         if (user == null) {
+            System.out.println("No user");
             return "Failed To Get User Information";
         }
 
         List<User> friends = memberService.getFriendList(type, userId);
 
         JSONArray result = new JSONArray(friends);
+        System.out.println(result.toString());
         return result.toString();
     }
 

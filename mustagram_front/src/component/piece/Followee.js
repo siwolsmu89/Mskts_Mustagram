@@ -11,7 +11,10 @@ class Followee extends Component {
         var myInfo = this.props.myInfo;
         var id = myInfo.id;
         console.log("followee userId", id);
-        fetch("/member/friend.do?type=e&userId=" + id)
+        // TODO
+        // 문제 1 : id 못 받아옴
+        // 문제 2 : .json()으로 받으면 오류 남
+        fetch("/member/friend.do?type=e&userId=siwolsmu")
             .then(response => response.json())
             .then(json => this.setState({friendInfo: json}));
     }
@@ -23,17 +26,16 @@ class Followee extends Component {
         var isShow = this.props.show;
         console.log(isShow);
 
-        const {friendInfo} = this.state;
-        const friendList = friendInfo.map(
-            (friend, i) => (
-                <li key={i}>
-                    <span>{i}</span>
-                    <img src={friend.image ? friend.image : basicImage} alt={"profile image of " + friend.name} />
-                    <span>{friend.id}</span>
-                </li>
-            )
-        );
-        console.log({friendInfo});
+        var friendList = this.state.friendInfo;
+        for (var i=0; i<friendList.length; i++) {
+            var friend = friendList[i];
+            <li>
+                <span>i</span>
+                <img src={friend.image ? friend.image : basicImage} alt={"profile image of " + friend.name} />
+                <span>{friend.id}</span>
+            </li>
+        }
+        console.log(this.state.friendInfo);
         return (
             <div className={isShow ? 'show' : ''}>
                 <ul>
