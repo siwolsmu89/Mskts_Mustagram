@@ -27,7 +27,7 @@ class FollowNFollowee extends Component {
     }
 
     render() {
-        var myInfo = this.state.myInfo;
+        var myInfo = this.props.myInfo;
         var myNickname = myInfo.nickname;
         return (
             <div className="follow-n-followee">
