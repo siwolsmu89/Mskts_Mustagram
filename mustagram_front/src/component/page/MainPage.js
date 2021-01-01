@@ -18,7 +18,6 @@ class MainPage extends Component {
 
     componentDidMount() {
         this.getMyInfo();
-        console.log('myInfo', this.state.myInfo);
     }
 
     render(){

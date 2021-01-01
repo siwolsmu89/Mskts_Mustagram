@@ -5,9 +5,7 @@ import './FollowNFollowee.css'
 
 class FollowNFollowee extends Component {
 
-    state = {
-        friendType : ""
-    }
+
     /*getFollow(type) {
         // ajax 요청으로 DB에서 팔로워 또는 팔로위 가져오기
         var id = this.props.myInfo.id;
@@ -20,8 +18,16 @@ class FollowNFollowee extends Component {
         this.setState({friendType: type});
     }
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            friendType : "",
+            myInfo: props.myInfo
+        }
+    }
+
     render() {
-        var myInfo = this.props.myInfo;
+        var myInfo = this.state.myInfo;
         var myNickname = myInfo.nickname;
         return (
             <div className="follow-n-followee">

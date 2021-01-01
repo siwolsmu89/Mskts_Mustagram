@@ -7,15 +7,15 @@ class Follower extends Component {
         friendInfo :[]
     }
 
-    getMyFollowers() {
-        var id = this.props.myInfo.id;
+    getMyFollowers(id) {
         fetch("/member/friend.do?type=r&userId="+id)
             .then(response => response.json())
             .then(json => this.setState({friendInfo:json}));
     }
 
     componentDidMount() {
-        this.getMyFollowers();
+        var id = this.props.myInfo.id;
+        this.getMyFollowers(id);
     }
 
     render() {
