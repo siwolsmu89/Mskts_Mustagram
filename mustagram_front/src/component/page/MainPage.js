@@ -16,8 +16,12 @@ class MainPage extends Component {
             .then(json => this.setState({myInfo:json}))
     }
 
-    componentDidMount() {
+    constructor() {
+        super();
         this.getMyInfo();
+    }
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        console.log("1234");
     }
 
     render(){

@@ -13,14 +13,16 @@ class Follower extends Component {
             .then(json => this.setState({friendInfo:json}));
     }
 
-    componentDidMount() {
-        var id = this.props.myInfo.id;
-        this.getMyFollowers(id);
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (prevProps.myInfo.id !== this.props.myInfo.id) {
+            var id = this.props.myInfo.id;
+            this.getMyFollowers(id);
+            console.log("followee");
+        }
     }
 
     render() {
         var isShow = this.props.show;
-        console.log(isShow);
 
         const { friendInfo } = this.state;
         const friendList = friendInfo.map(
