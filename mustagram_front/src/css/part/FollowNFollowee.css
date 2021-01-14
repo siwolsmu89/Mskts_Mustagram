@@ -4,7 +4,11 @@
     border: 1px solid red;
 }
 
-.friend-content * {
+.follow-n-followee-tab {
+    border-bottom: 1px solid red;
+}
+
+.friend-content .hide {
     display: none;
 }
 

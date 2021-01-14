@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import Follower from '../../piece/Follower';
-import Followee from '../../piece/Followee';
-import './FollowNFollowee.css'
+import Follower from '../piece/Follower';
+import Followee from '../piece/Followee';
+import '../../css/part/FollowNFollowee.css'
 
 class FollowNFollowee extends Component {
 
@@ -34,12 +34,12 @@ class FollowNFollowee extends Component {
                 <div className="follow-n-followee-tab row">
                     <div className="col-6" onClick={() => this.getFollow('er')}>
                         <h3>
-                            {myNickname}'s Follwers
+                            Who I Follow
                         </h3>
                     </div>
                     <div className="col-6" onClick={() => this.getFollow('ee')}>
                         <h3>
-                            {myNickname}'s Follwees
+                            Who Follows me
                         </h3>
                     </div>
                 </div>

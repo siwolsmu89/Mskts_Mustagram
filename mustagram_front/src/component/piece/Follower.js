@@ -7,36 +7,51 @@ class Follower extends Component {
         friendInfo :[]
     }
 
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (prevProps.myInfo.id !== this.props.myInfo.id) {
+            var id = this.props.myInfo.id;
+            this.getMyFollowers(id);
+        }
+    }
+
     getMyFollowers(id) {
         fetch("/member/friend.do?type=r&userId="+id)
             .then(response => response.json())
             .then(json => this.setState({friendInfo:json}));
     }
 
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        if (prevProps.myInfo.id !== this.props.myInfo.id) {
-            var id = this.props.myInfo.id;
-            this.getMyFollowers(id);
-            console.log("followee");
+    setFriendList() {
+        var friendList = this.state.friendInfo;
+        var friendUl = [];
+
+        for (var i=0; i<friendList.length; i++) {
+            var friend = friendList[i];
+            let friendtag = (
+                <li key={i}>
+                    <img className="followee-img" src={friend.image ? friend.image : basicImage} alt={'profile image of ' + friend.name} />
+                    <span>{friend.id}</span>
+                </li>
+            );
+
+            friendUl.push(friendtag);
         }
+
+        if (friendList.length === 0) {
+            let friendtag = (
+                <li key="0"> You are following no one  </li>
+            );
+            friendUl.push(friendtag);
+        }
+
+        return friendUl;
     }
 
     render() {
         var isShow = this.props.show;
 
-        const { friendInfo } = this.state;
-        const friendList = friendInfo.map(
-            (friend, i) => (
-            <li key={i}>
-                <span>{i}</span>
-                <img src={friend.image ? friend.image : basicImage} alt={"profile image of " + friend.name} />
-                <span>{friend.id}</span>
-            </li>
-            )
-        );
         return (
-            <div className={isShow ? 'show' : ''}>
-                {friendList.length > 0 ? friendList : "No Followers Found"}
+            <div className={isShow ? 'show' : 'hide'}>
+                <ul id="follower-ul"> {this.setFriendList()} </ul>
             </div>
         );
     }

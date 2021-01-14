@@ -1,0 +1,17 @@
+#followee-ul {
+    list-style-type: square;
+}
+
+#followee-ul li span {
+    color: deepskyblue;
+    font-weight: bold;
+    margin-left: 15px;
+}
+
+.followee-img {
+    width: 50px;
+    border: 1px solid gray;
+    border-radius: 50%;
+    margin: 10px;
+    padding: 2px;
+}
