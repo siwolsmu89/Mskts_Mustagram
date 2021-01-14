@@ -57,7 +57,7 @@
         FROM user_info
         WHERE user_id IN (
             SELECT
-                followee_id
+                follower_id
             FROM
                 user_follow
             WHERE

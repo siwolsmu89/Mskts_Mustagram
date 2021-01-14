@@ -29,8 +29,17 @@ class Follower extends Component {
             var friend = friendList[i];
             let friendtag = (
                 <li key={i}>
-                    <img className="follower-img" src={friend.image ? friend.image : basicImage} alt={'profile image of ' + friend.name} />
-                    <span>{friend.id}</span>
+                    <div className="row">
+                        <div className="col-3">
+                            <img className="follower-img" src={friend.image ? friend.image : basicImage} alt={'profile image of ' + friend.name} />
+                        </div>
+                        <div className="col-3">
+                            <span>{friend.id}</span>
+                        </div>
+                        <div className="col-3">
+                            <button type="button">Unfollow</button>
+                        </div>
+                    </div>
                 </li>
             );
 
