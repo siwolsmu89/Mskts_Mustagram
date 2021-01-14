@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import basicImage from "../../resources/profile/react-profile.png";
+import "../../css/piece/Follower.css";
 
 class Follower extends Component {
 
@@ -28,7 +29,7 @@ class Follower extends Component {
             var friend = friendList[i];
             let friendtag = (
                 <li key={i}>
-                    <img className="followee-img" src={friend.image ? friend.image : basicImage} alt={'profile image of ' + friend.name} />
+                    <img className="follower-img" src={friend.image ? friend.image : basicImage} alt={'profile image of ' + friend.name} />
                     <span>{friend.id}</span>
                 </li>
             );
