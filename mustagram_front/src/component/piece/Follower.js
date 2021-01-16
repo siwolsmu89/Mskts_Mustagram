@@ -5,7 +5,8 @@ import "../../css/piece/Follower.css";
 class Follower extends Component {
 
     state = {
-        friendInfo :[]
+        friendInfo :[],
+        message: {}
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
@@ -13,6 +14,7 @@ class Follower extends Component {
             var id = this.props.myInfo.id;
             this.getMyFollowers(id);
         }
+        this.render();
     }
 
     getMyFollowers(id) {
@@ -27,6 +29,10 @@ class Follower extends Component {
 
         for (var i=0; i<friendList.length; i++) {
             var friend = friendList[i];
+            var unfollowParams = {
+                userId : this.props.myInfo.id,
+                friendId : friend.id
+            };
             let friendtag = (
                 <li key={i}>
                     <div className="row">
@@ -37,7 +43,7 @@ class Follower extends Component {
                             <span>{friend.id}</span>
                         </div>
                         <div className="col-3">
-                            <button type="button">Unfollow</button>
+                            <button type="button" onClick={ this.unfollow.bind(this, unfollowParams) }>Unfollow</button>
                         </div>
                     </div>
                 </li>
@@ -54,6 +60,16 @@ class Follower extends Component {
         }
 
         return friendUl;
+    }
+
+    unfollow(unfollowParams) {
+        fetch("/member/unfollow.do?userId="+unfollowParams.userId+"&friendId="+unfollowParams.friendId)
+            .then(response => response.json())
+            .then(json => this.setState({message:json}));
+
+        console.debug(this.state.message);
+        console.info("unfollow 1",unfollowParams.userId);
+        console.info("unfollow 2",unfollowParams.friendId);
     }
 
     render() {

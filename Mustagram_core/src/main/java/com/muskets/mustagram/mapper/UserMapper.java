@@ -12,6 +12,7 @@ public interface UserMapper {
     void insertUser(User user);
     void updateUser(User user);
     void deleteUser(String userId);
+    void deleteFollower(String userId, String friendId);
     User getUserById(String userId);
     List<User> getAllFollowersOf(String userId);
     List<User> getAllFolloweesOf(String userId);

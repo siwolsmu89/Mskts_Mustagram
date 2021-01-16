@@ -66,4 +66,10 @@ public class MemberServiceImpl implements MemberService {
         return friendList;
     }
 
+    public String unfollowFriend(String userId, String friendId) {
+        userMapper.deleteFollower(userId, friendId);
+
+        return "deleteFollower Successfully Done";
+    }
+
 }

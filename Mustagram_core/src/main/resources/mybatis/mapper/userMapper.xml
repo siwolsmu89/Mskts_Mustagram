@@ -24,6 +24,11 @@
         WHERE
             user_id = #{id}
     </delete>
+    <delete id="deleteFollower">
+        DELETE FROM user_follow
+            WHERE follower_id = #{userId}
+            AND followee_id = #{friendId}
+    </delete>
     <select id="getUserById" parameterType="String" resultType="com.muskets.mustagram.vo.User">
         SELECT
             user_id AS id,

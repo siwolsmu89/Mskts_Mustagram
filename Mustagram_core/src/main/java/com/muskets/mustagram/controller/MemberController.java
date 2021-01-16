@@ -18,7 +18,7 @@ import java.util.Map;
 public class MemberController {
 
     @Autowired
-    public MemberService memberService;
+    private MemberService memberService;
 
     @RequestMapping("/register.do")
     public String registerNewUser(@RequestBody User user) {
@@ -57,6 +57,28 @@ public class MemberController {
         JSONArray result = new JSONArray(friends);
         System.out.println(result.toString());
         return result.toString();
+    }
+
+    @RequestMapping("unfollow.do")
+    public String unfollowFriend(@RequestParam String userId, @RequestParam String friendId) {
+        System.out.println("unfollowFriend Activated..");
+        System.out.println("User ID :: " + userId);
+        System.out.println("Friend ID :: " + friendId);
+
+        User user = memberService.getMemberInfo(userId);
+        if (user == null) {
+            System.out.println("No user");
+            return "Failed To Get User Information";
+        }
+
+        List<User> friends = memberService.getFriendList("r", userId);
+        for (User friend : friends) {
+            if (friendId.equals(friend.getId())){
+                return memberService.unfollowFriend(userId, friendId);
+            }
+        }
+
+        return "Failed To Delete Follower : No matching Friend Exists";
     }
 
 }
