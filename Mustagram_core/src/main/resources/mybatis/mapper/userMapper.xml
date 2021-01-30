@@ -24,10 +24,16 @@
         WHERE
             user_id = #{id}
     </delete>
+    <insert id="insertFollower">
+        INSERT INTO user_follow
+            (followee_id, follower_id)
+        VALUES
+            (#{userId}, #{friendId})
+    </insert>
     <delete id="deleteFollower">
         DELETE FROM user_follow
-            WHERE follower_id = #{userId}
-            AND followee_id = #{friendId}
+            WHERE followee_id = #{userId}
+            AND follower_id = #{friendId}
     </delete>
     <select id="getUserById" parameterType="String" resultType="com.muskets.mustagram.vo.User">
         SELECT

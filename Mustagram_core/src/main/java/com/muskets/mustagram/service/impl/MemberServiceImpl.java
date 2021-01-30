@@ -72,4 +72,9 @@ public class MemberServiceImpl implements MemberService {
         return "deleteFollower Successfully Done";
     }
 
+    public String followFriend(String userId, String friendId) {
+        userMapper.insertFollower(userId, friendId);
+
+        return "addFollower Successfully Done";
+    }
 }

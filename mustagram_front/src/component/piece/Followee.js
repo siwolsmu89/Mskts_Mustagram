@@ -29,6 +29,10 @@ class Followee extends Component {
 
         for (var i=0; i<friendList.length; i++) {
             var friend = friendList[i];
+            var followParams = {
+                userId : this.props.myInfo.id,
+                friendId : friend.id
+            };
             let friendtag = (
                                 <li key={i}>
                                     <div className="row">
@@ -39,7 +43,7 @@ class Followee extends Component {
                                             <span>{friend.id}</span>
                                         </div>
                                         <div className="col-3">
-                                            <button type="button">Follow</button>
+                                            <button type="button" onClick={ this.follow.bind(this, followParams) }>Follow</button>
                                         </div>
                                         <div className="col-3">
                                             <button type="button">Ignore</button>
@@ -59,6 +63,18 @@ class Followee extends Component {
         }
 
         return friendUl;
+    }
+
+    follow(followParams) {
+        fetch("/member/follow.do?userId="+followParams.userId+"&friendId="+followParams.friendId)
+            .then(response => response.json())
+            .then(json => this.setState({message:json}));
+
+        console.debug(this.state.message);
+        console.info("follow 1",followParams.userId);
+        console.info("follow 2",followParams.friendId);
+
+        render();
     }
 
     render() {

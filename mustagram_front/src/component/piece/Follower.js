@@ -70,6 +70,8 @@ class Follower extends Component {
         console.debug(this.state.message);
         console.info("unfollow 1",unfollowParams.userId);
         console.info("unfollow 2",unfollowParams.friendId);
+
+        render();
     }
 
     render() {

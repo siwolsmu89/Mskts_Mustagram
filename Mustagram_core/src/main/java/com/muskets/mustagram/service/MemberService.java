@@ -14,4 +14,5 @@ public interface MemberService {
     public User getMemberInfo(String userId);
     public List<User> getFriendList(String type, String userId);
     public String unfollowFriend(String userId, String friendId);
+    public String followFriend(String userId, String friendId);
 }

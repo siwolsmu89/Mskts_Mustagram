@@ -81,4 +81,26 @@ public class MemberController {
         return "Failed To Delete Follower : No matching Friend Exists";
     }
 
+    @RequestMapping("follow.do")
+    public String followFriend(@RequestParam String userId, @RequestParam String friendId) {
+        System.out.println("followFriend Activated..");
+        System.out.println("User ID :: " + userId);
+        System.out.println("Friend ID :: " + friendId);
+
+        User user = memberService.getMemberInfo(userId);
+        if (user == null) {
+            System.out.println("No user");
+            return "Failed To Get User Information";
+        }
+
+        List<User> friends = memberService.getFriendList("r", userId);
+        for (User friend : friends) {
+            if (friendId.equals(friend.getId())){
+                return "You're already Following this friend.";
+            }
+        }
+
+        return memberService.followFriend(userId, friendId);
+    }
+
 }
