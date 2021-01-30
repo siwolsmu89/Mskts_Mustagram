@@ -73,8 +73,6 @@ class Followee extends Component {
         console.debug(this.state.message);
         console.info("follow 1",followParams.userId);
         console.info("follow 2",followParams.friendId);
-
-        render();
     }
 
     render() {
